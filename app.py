@@ -20,4 +20,4 @@ if __name__ == '__main__':
     def getRouteHandler():
         return jsonify(status="success",msg="Hello world")
     
-    app.run(host="0.0.0.0", port=7000, debug=False)
+    # app.run(host="0.0.0.0", port=7000, debug=False)
