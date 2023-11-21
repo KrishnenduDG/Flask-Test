@@ -1,11 +1,13 @@
 from flask import Flask,jsonify
 from config import limiter
 from rate_limiter import on_breach
-
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 def create_app():
     app = Flask(__name__)
 
+    # Use ProxyFix to get the real client IP from headers
+    app.wsgi_app = ProxyFix(app.wsgi_app)
     # Configuring the Limiter
     limiter.init_app(app)
 
